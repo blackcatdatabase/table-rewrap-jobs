@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class RewrapJobDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'key_wrapper_id' => 'keyWrapperId', 'target_kms1_key_id' => 'targetKms1KeyId', 'target_kms2_key_id' => 'targetKms2KeyId', 'scheduled_at' => 'scheduledAt', 'started_at' => 'startedAt', 'finished_at' => 'finishedAt', 'last_error' => 'lastError', 'created_at' => 'createdAt' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'key_wrapper_id' => 'keyWrapperId', 'target_kms1_key_id' => 'targetKms1KeyId', 'target_kms2_key_id' => 'targetKms2KeyId', 'scheduled_at' => 'scheduledAt', 'started_at' => 'startedAt', 'finished_at' => 'finishedAt', 'status' => 'status', 'attempts' => 'attempts', 'last_error' => 'lastError', 'created_at' => 'createdAt' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
