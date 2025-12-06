@@ -1,6 +1,7 @@
--- Auto-generated from schema-views-postgres.psd1 (map@62c9c93)
+-- Auto-generated from schema-views-postgres.yaml (map@sha1:EDC13878AE5F346E7EAD2CF0A484FEB7E68F6CDD)
 -- engine: postgres
 -- table:  rewrap_jobs
+
 -- Contract view for [rewrap_jobs]
 -- Adds helpers: is_done, is_running.
 CREATE OR REPLACE VIEW vw_rewrap_jobs AS
@@ -16,6 +17,6 @@ SELECT
   attempts,
   last_error,
   created_at,
-  (status = ''done'')     AS is_done,
-  (status = ''running'')  AS is_running
+  (status = 'done')     AS is_done,
+  (status = 'running')  AS is_running
 FROM rewrap_jobs;
