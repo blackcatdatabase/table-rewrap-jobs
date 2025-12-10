@@ -5,17 +5,17 @@ Key rewrap tasks that move ciphertexts to new key wrappers/KMS keys.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| target_kms2_key_id | BIGINT | YES |  | Target secondary KMS key. |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| scheduled_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | Scheduled start time. |
-| last_error | TEXT | YES |  | Last error message observed. |
 | attempts | mysql: INT / postgres: INTEGER | NO | 0 | Retry counter. |
-| status | mysql: ENUM('pending','running','done','failed') / postgres: TEXT | NO | pending | Job status flag. (enum: pending, running, done, failed) |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | finished_at | DATETIME(6) | YES |  | Processing completion timestamp. |
-| target_kms1_key_id | BIGINT | YES |  | Target primary KMS key. |
-| started_at | DATETIME(6) | YES |  | Processing start timestamp. |
+| id | BIGINT | NO |  | Surrogate primary key. |
 | key_wrapper_id | BIGINT | NO |  | Wrapper being rewrapped (FK key_wrappers.id). |
+| last_error | TEXT | YES |  | Last error message observed. |
+| scheduled_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | Scheduled start time. |
+| started_at | DATETIME(6) | YES |  | Processing start timestamp. |
+| status | mysql: ENUM('pending','running','done','failed') / postgres: TEXT | NO | pending | Job status flag. (enum: pending, running, done, failed) |
+| target_kms1_key_id | BIGINT | YES |  | Target primary KMS key. |
+| target_kms2_key_id | BIGINT | YES |  | Target secondary KMS key. |
 
 ## Engine Details
 
