@@ -41,11 +41,11 @@ final class Criteria extends BaseCriteria
         return [ 'last_error' ];
     }
 
-/** Columns allowed in ORDER BY (falls back to filterable() when empty). */
-protected function sortable(): array
-{
-    return [ 'id', 'key_wrapper_id', 'target_kms1_key_id', 'target_kms2_key_id', 'scheduled_at', 'started_at', 'finished_at', 'status', 'attempts', 'last_error', 'created_at' ];
-}
+    /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
+    protected function sortable(): array
+    {
+        return [ 'id', 'key_wrapper_id', 'target_kms1_key_id', 'target_kms2_key_id', 'scheduled_at', 'started_at', 'finished_at', 'status', 'attempts', 'last_error', 'created_at' ];
+    }
 
     /**
      * Whitelist of joinable entities (for safe ->join() usage):

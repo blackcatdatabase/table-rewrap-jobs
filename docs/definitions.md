@@ -5,17 +5,17 @@ Key rewrap tasks that move ciphertexts to new key wrappers/KMS keys.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| attempts | INT | NO | 0 | Retry counter. |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| finished_at | DATETIME(6) | YES |  | Processing completion timestamp. |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | key_wrapper_id | BIGINT | NO |  | Wrapper being rewrapped (FK key_wrappers.id). |
-| last_error | TEXT | YES |  | Last error message observed. |
-| scheduled_at | DATETIME(6) | YES |  | Scheduled start time. |
-| started_at | DATETIME(6) | YES |  | Processing start timestamp. |
-| status | ENUM('pending','running','done','failed') | NO | pending | Job status flag. (enum: pending, running, done, failed) |
 | target_kms1_key_id | BIGINT | YES |  | Target primary KMS key. |
 | target_kms2_key_id | BIGINT | YES |  | Target secondary KMS key. |
+| scheduled_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | Scheduled start time. |
+| started_at | DATETIME(6) | YES |  | Processing start timestamp. |
+| finished_at | DATETIME(6) | YES |  | Processing completion timestamp. |
+| status | mysql: ENUM('pending','running','done','failed') / postgres: TEXT | NO | pending | Job status flag. (enum: pending, running, done, failed) |
+| attempts | mysql: INT / postgres: INTEGER | NO | 0 | Retry counter. |
+| last_error | TEXT | YES |  | Last error message observed. |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 
 ## Engine Details
 
@@ -54,5 +54,5 @@ Foreign keys:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_rewrap_jobs | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
-| vw_rewrap_jobs | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
+| vw_rewrap_jobs | mysql | algorithm=MERGE, security=INVOKER | [../schema/040_views.mysql.sql](../schema/040_views.mysql.sql) |
+| vw_rewrap_jobs | postgres |  | [../schema/040_views.postgres.sql](../schema/040_views.postgres.sql) |
