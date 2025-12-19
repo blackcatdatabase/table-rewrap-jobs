@@ -1,0 +1,41 @@
+{
+  "tables": {
+    "rewrap_jobs": {
+      "columns": {
+        "attempts": {
+          "strategy": "passthrough"
+        },
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "finished_at": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "key_wrapper_id": {
+          "strategy": "passthrough"
+        },
+        "last_error": {
+          "strategy": "passthrough"
+        },
+        "scheduled_at": {
+          "strategy": "passthrough"
+        },
+        "started_at": {
+          "strategy": "passthrough"
+        },
+        "status": {
+          "strategy": "passthrough"
+        },
+        "target_kms1_key_id": {
+          "strategy": "passthrough"
+        },
+        "target_kms2_key_id": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}
